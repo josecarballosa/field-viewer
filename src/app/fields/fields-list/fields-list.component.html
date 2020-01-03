@@ -1,0 +1,33 @@
+<ul class="list-group" *ngFor="let field of fields">
+  <li class="list-group-item list-group-item-action">
+    <a class="stretched-link text-decoration-none" (click)="handleClick(field)">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <app-field-thumbnail
+            class="map"
+            [field]="field"
+          ></app-field-thumbnail>
+          <small>
+            <span class="badge-pill badge-secondary px-2"
+              >{{ field.fieldArea }} ha.</span
+            >
+          </small>
+        </div>
+        <div class="col">
+          <h5 class="text-dark my-1">{{ field.fieldName }}</h5>
+          <small class="text-muted d-block">{{
+            field.HB_Imx[0].soil_type
+          }}</small>
+          <small
+            ><a href="#" class="text-decoration-none">Call to action</a></small
+          >
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-link text-decoration-none">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,79 @@
+<ng-container *ngIf="field$ | async as field">
+  <form>
+    <div class="form-group row">
+      <label class="col-4 col-form-label" for="fieldName"
+        ><small class="text-muted">Name</small></label
+      >
+      <div class="col-8">
+        <input
+          type="text"
+          readonly
+          class="form-control-plaintext"
+          id="fieldName"
+          [ngModel]="field.fieldName"
+          name="fieldName"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-4 col-form-label" for="plantingDate"
+        ><small class="text-muted">Planting date</small></label
+      >
+      <div class="col-8">
+        <input
+          type="text"
+          readonly
+          class="form-control-plaintext"
+          id="plantingDate"
+          [ngModel]="field.plantingDate"
+          name="plantingDate"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-4 col-form-label" for="fieldArea"
+        ><small class="text-muted">Size</small></label
+      >
+      <div class="col-8">
+        <input
+          type="text"
+          readonly
+          class="form-control-plaintext"
+          id="fieldArea"
+          [ngModel]="field.fieldArea + ' ha.'"
+          name="fieldArea"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-4 col-form-label" for="irrigationType"
+        ><small class="text-muted">Irrigation type</small></label
+      >
+      <div class="col-8">
+        <input
+          type="text"
+          readonly
+          class="form-control-plaintext"
+          id="irrigationType"
+          [ngModel]="field.fieldIrrigationType"
+          name="irrigationType"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-4 col-form-label" for="soilType"
+        ><small class="text-muted">Soil type</small></label
+      >
+      <div class="col-8">
+        <input
+          type="text"
+          readonly
+          class="form-control-plaintext"
+          id="soilType"
+          [ngModel]="field.fieldSoilType"
+          name="soilType"
+        />
+      </div>
+    </div>
+  </form>
+</ng-container>

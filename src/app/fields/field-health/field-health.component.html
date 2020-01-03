@@ -1,0 +1,21 @@
+<ng-container *ngIf="field$ | async as field">
+  <form>
+    <div class="form-group row">
+      <label class="col-4 col-form-label" for="cropStage"
+        ><small class="text-muted">Crop stage</small></label
+      >
+      <div class="col-8">
+        <textarea
+          class="form-control-plaintext"
+          rows="3"
+          id="cropStage"
+          [ngModel]="field.HB_ImaDailyJson.crop_stage"
+          name="cropStage"
+        ></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary">
+      Add your first activity
+    </button>
+  </form>
+</ng-container>

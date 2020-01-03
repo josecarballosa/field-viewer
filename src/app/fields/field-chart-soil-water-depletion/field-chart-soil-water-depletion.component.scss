@@ -1,0 +1,13 @@
+.chart {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+}
+
+/* @include media-breakpoint-up(sm) { */
+@media only screen and (min-width: 576px) {
+  .chart {
+    width: 40vw;
+    height: 60vh;
+  }
+}

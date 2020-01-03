@@ -1,0 +1,28 @@
+<div class="container-fluid mt-3">
+  <ngb-tabset>
+    <ngb-tab>
+      <ng-template ngbTabTitle
+        >Cum<span class="d-none d-md-inline">ulative water</span>
+        use</ng-template
+      >
+      <ng-template ngbTabContent>
+        <app-field-chart-cumulative-water-use
+          [field]="field"
+        ></app-field-chart-cumulative-water-use>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle
+        >Soil <span class="d-none d-md-inline">water </span>dep<span
+          class="d-none d-md-inline"
+          >letion</span
+        ></ng-template
+      >
+      <ng-template ngbTabContent>
+        <app-field-chart-soil-water-depletion
+          [field]="field"
+        ></app-field-chart-soil-water-depletion>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

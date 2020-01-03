@@ -8,20 +8,24 @@
 
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 // import { HttpClientModule } from '@angular/common/http';
 
-// import { NavbarComponent } from './navbar/navbar.component';
-// import { ToolbarComponent } from './toolbar/toolbar.component';
+// import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { throwIfAlreadyLoaded } from './duplicate-import-guard';
+import { HeaderComponent } from './header/header.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    // HttpClientModule
+    RouterModule,
+    // HttpClientModule,
+    // NgbDropdownModule,
   ],
-  // declarations: [NavbarComponent, ToolbarComponent],
-  declarations: [],
-  // exports: [NavbarComponent, ToolbarComponent],
+  declarations: [HeaderComponent, NotFoundComponent],
+  exports: [HeaderComponent, NotFoundComponent],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

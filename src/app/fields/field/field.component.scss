@@ -1,0 +1,26 @@
+.map-pane {
+  margin: 1rem;
+}
+
+.form-pane {
+  margin: 0 1rem 1rem 1rem;
+}
+
+.map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 54px - 4rem);
+}
+
+/* @include media-breakpoint-up(sm) { */
+@media only screen and (min-width: 576px) {
+  .map-pane {
+    margin: 0;
+  }
+
+  .map {
+    height: calc(100vh - 54px);
+  }
+}

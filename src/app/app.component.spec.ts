@@ -1,12 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HeaderComponent } from '@core/header/header.component';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      declarations: [AppComponent, HeaderComponent],
+      // schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -16,18 +20,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'field-viewer'`, () => {
+  it(`should have as title 'Field Viewer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('field-viewer');
+    expect(app.title).toEqual('Field Viewer');
   });
 
-  xit('should render title', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'field-viewer app is running!',
-    );
+    console.log(fixture.nativeElement);
+    expect(
+      fixture.debugElement.query(By.directive(HeaderComponent)).nativeElement
+        .textContent,
+    ).toContain('Field Viewer');
   });
 });

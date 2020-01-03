@@ -1,0 +1,13 @@
+<app-split-view>
+  <div left class="map-pane">
+    <app-field-map
+      class="map"
+      [field]="field$ | async"
+      (viewSelected)="handleViewSelected($event)"
+    >
+    </app-field-map>
+  </div>
+  <div right class="details-pane">
+    <router-outlet></router-outlet>
+  </div>
+</app-split-view>

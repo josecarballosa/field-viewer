@@ -1,0 +1,15 @@
+<app-split-view>
+  <div left class="list-pane">
+    <app-fields-list
+      [fields]="fields$ | async"
+      (fieldSelected)="handleFieldSelected($event)"
+    ></app-fields-list>
+  </div>
+  <div right class="map-pane">
+    <app-fields-map
+      class="map"
+      [fields]="fields$ | async"
+      (fieldSelected)="handleFieldSelected($event)"
+    ></app-fields-map>
+  </div>
+</app-split-view>
