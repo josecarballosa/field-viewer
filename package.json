@@ -7,9 +7,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "ngx-lint": "node ngx-lint"
+    "lint": "ng lint --fix=true",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -56,21 +55,15 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "~3.5.3",
-    "winston": "^3.2.1"
+    "typescript": "~3.5.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged -r"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "node ngx-lint field-viewer",
-      "prettier --write",
-      "git add"
-    ],
-    "src/**/*.{json,js,css,scss,less,md,html,component.html}": [
+    "**/*.{json,js,css,scss,less,md,ts,html,component.html}": [
       "prettier --write",
       "git add"
     ]
