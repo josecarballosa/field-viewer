@@ -66,7 +66,7 @@
   },
   "lint-staged": {
     "src/**/*.{json,js,css,scss,less,md,html,component.html}": [
-      "node ngx-lint field-viewer --fix=true",
+      "node ngx-lint field-viewer",
       "prettier --write",
       "git add"
     ]
