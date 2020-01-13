@@ -7,8 +7,9 @@ import {
 } from '@angular/core';
 
 import * as L from 'leaflet';
+import * as geojson from 'geojson';
 
-import { Field } from '../shared/field.model';
+import { Field } from '@app/fields/shared/field.model';
 
 @Component({
   selector: 'app-field-thumbnail',
@@ -53,7 +54,7 @@ export class FieldThumbnailComponent implements AfterViewInit {
   }
 
   createOverlayLayer(field: Field) {
-    return L.geoJSON(field.geoJSONResponse, {
+    return L.geoJSON(field.geoJSONResponse as geojson.GeoJsonObject, {
       style: {
         color: 'white',
         weight: 0, // 2    0

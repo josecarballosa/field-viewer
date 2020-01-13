@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FieldChartCumulativeWaterUseComponent } from './field-chart-cumulative-water-use.component';
+import { FieldWaterDepletionComponent } from './field-water-depletion.component';
 import { ChartsModule } from 'ng2-charts';
 
-describe('FieldChartCumulativeWaterUseComponent', () => {
-  let component: FieldChartCumulativeWaterUseComponent;
-  let fixture: ComponentFixture<FieldChartCumulativeWaterUseComponent>;
+describe('FieldWaterDepletionComponent', () => {
+  let component: FieldWaterDepletionComponent;
+  let fixture: ComponentFixture<FieldWaterDepletionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ChartsModule],
-      declarations: [FieldChartCumulativeWaterUseComponent],
+      declarations: [FieldWaterDepletionComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FieldChartCumulativeWaterUseComponent);
+    fixture = TestBed.createComponent(FieldWaterDepletionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

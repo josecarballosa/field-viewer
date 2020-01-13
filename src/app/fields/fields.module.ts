@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '@app/shared';
 import { FieldsRoutingModule } from './fields-routing.module';
 import { FieldsComponent } from './fields/fields.component';
 import { FieldsListComponent } from './fields-list/fields-list.component';
@@ -14,8 +14,8 @@ import { FieldMapComponent } from './field-map/field-map.component';
 import { FieldDetailsComponent } from './field-details/field-details.component';
 import { FieldHealthComponent } from './field-health/field-health.component';
 import { FieldIrrigationComponent } from './field-irrigation/field-irrigation.component';
-import { FieldChartSoilWaterDepletionComponent } from './field-chart-soil-water-depletion/field-chart-soil-water-depletion.component';
-import { FieldChartCumulativeWaterUseComponent } from './field-chart-cumulative-water-use/field-chart-cumulative-water-use.component';
+import { FieldWaterDepletionComponent } from './field-water-depletion/field-water-depletion.component';
+import { FieldWaterUseComponent } from './field-water-use/field-water-use.component';
 import { FieldThumbnailComponent } from './field-thumbnail/field-thumbnail.component';
 
 @NgModule({
@@ -28,8 +28,8 @@ import { FieldThumbnailComponent } from './field-thumbnail/field-thumbnail.compo
     FieldDetailsComponent,
     FieldHealthComponent,
     FieldIrrigationComponent,
-    FieldChartSoilWaterDepletionComponent,
-    FieldChartCumulativeWaterUseComponent,
+    FieldWaterDepletionComponent,
+    FieldWaterUseComponent,
     FieldThumbnailComponent,
   ],
   imports: [

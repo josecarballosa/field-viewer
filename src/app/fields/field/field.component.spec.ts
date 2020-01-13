@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { FieldComponent } from './field.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule, RouterStateSnapshot } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FieldComponent', () => {
   let component: FieldComponent;

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FieldService } from '../shared/field.service';
-import { Field } from '../shared/field.model';
+
+import { FieldService } from '@app/fields/shared/field.service';
+import { Field } from '@app/fields/shared/field.model';
 
 @Component({
   selector: 'app-fields',

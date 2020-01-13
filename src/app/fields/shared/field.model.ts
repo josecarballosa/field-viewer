@@ -44,7 +44,7 @@ export interface Field {
 }
 
 export interface GeoJSONResponse {
-  type: string;
+  type: 'Feature'; // string;
   properties: Properties;
   geometry: Geometry;
 }
@@ -54,6 +54,7 @@ export interface Geometry {
   coordinates: number[][][];
 }
 
+// tslint:disable-next-line: no-empty-interface
 export interface Properties {}
 
 export interface HBImx {

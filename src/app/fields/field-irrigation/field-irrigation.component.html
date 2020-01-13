@@ -6,9 +6,7 @@
         use</ng-template
       >
       <ng-template ngbTabContent>
-        <app-field-chart-cumulative-water-use
-          [field]="field"
-        ></app-field-chart-cumulative-water-use>
+        <app-field-water-use [field]="field"></app-field-water-use>
       </ng-template>
     </ngb-tab>
     <ngb-tab>
@@ -19,9 +17,7 @@
         ></ng-template
       >
       <ng-template ngbTabContent>
-        <app-field-chart-soil-water-depletion
-          [field]="field"
-        ></app-field-chart-soil-water-depletion>
+        <app-field-water-depletion [field]="field"></app-field-water-depletion>
       </ng-template>
     </ngb-tab>
   </ngb-tabset>

@@ -2,14 +2,14 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { BaseChartDirective, Color, Label } from 'ng2-charts';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Field } from '../shared/field.model';
+import { Field } from '@app/fields/shared/field.model';
 
 @Component({
-  selector: 'app-field-chart-cumulative-water-use',
-  templateUrl: './field-chart-cumulative-water-use.component.html',
-  styleUrls: ['./field-chart-cumulative-water-use.component.scss'],
+  selector: 'app-field-water-use',
+  templateUrl: './field-water-use.component.html',
+  styleUrls: ['./field-water-use.component.scss'],
 })
-export class FieldChartCumulativeWaterUseComponent implements OnInit {
+export class FieldWaterUseComponent implements OnInit {
   @Input() field: Field;
 
   chartLabels: Label[] = [];

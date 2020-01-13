@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { map, tap } from 'rxjs/operators';
 
-import { FieldService } from '../shared/field.service';
+import { FieldService } from '@app/fields/shared/field.service';
 
 @Component({
   selector: 'app-field-health',

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { map } from 'rxjs/operators';
 
-import { FieldService } from '../shared/field.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { FieldService } from '@app/fields/shared/field.service';
 
 @Component({
   selector: 'app-field',
@@ -10,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./field.component.scss'],
 })
 export class FieldComponent {
-  ima = this.route.snapshot.params['ima'] as string;
+  ima = this.route.snapshot.params.ima as string;
   field$ = this.fieldService.fields$.pipe(
     map(fields => fields.find(field => field.ima === this.ima)),
   );

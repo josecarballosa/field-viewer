@@ -5,11 +5,11 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Field } from '../shared/field.model';
 
 @Component({
-  selector: 'app-field-chart-soil-water-depletion',
-  templateUrl: './field-chart-soil-water-depletion.component.html',
-  styleUrls: ['./field-chart-soil-water-depletion.component.scss'],
+  selector: 'app-field-water-depletion',
+  templateUrl: './field-water-depletion.component.html',
+  styleUrls: ['./field-water-depletion.component.scss'],
 })
-export class FieldChartSoilWaterDepletionComponent implements OnInit {
+export class FieldWaterDepletionComponent implements OnInit {
   @Input() field: Field;
 
   chartLabels: Label[] = [];

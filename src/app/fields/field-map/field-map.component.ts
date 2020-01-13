@@ -9,9 +9,12 @@ import {
 } from '@angular/core';
 
 import * as L from 'leaflet';
+import * as geojson from 'geojson';
 
-import { Field, HBImaImage } from '../shared/field.model';
-import { environment } from 'src/environments/environment';
+import { Field, HBImaImage } from '@app/fields/shared/field.model';
+import { environment } from '@env/environment';
+
+const { mapKey } = environment;
 
 @Component({
   selector: 'app-field-map',
@@ -23,17 +26,17 @@ export class FieldMapComponent implements AfterViewInit {
   @Output() viewSelected = new EventEmitter<string>();
 
   @ViewChild('map', { static: true }) mapDiv: ElementRef;
-  private mapKey = environment.mapKey;
   private map: L.Map;
   private control: L.Control.Layers;
   private selectedLayer = 'Details';
 
   ngAfterViewInit() {
-    if (this.field && this.mapKey) {
-      this.createMap(this.field, this.mapKey);
+    if (this.field && mapKey) {
+      this.createMap(this.field, mapKey);
     }
   }
 
+  // tslint:disable-next-line: no-shadowed-variable
   createMap(field: Field, mapKey: string) {
     if (!this.map) {
       this.map = L.map(this.mapDiv.nativeElement);
@@ -75,6 +78,7 @@ export class FieldMapComponent implements AfterViewInit {
     this.map.fitBounds(bounds);
   }
 
+  // tslint:disable-next-line: no-shadowed-variable
   createBaseLayer(mapKey: string) {
     return L.tileLayer(
       `https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${mapKey}`,
@@ -83,7 +87,7 @@ export class FieldMapComponent implements AfterViewInit {
   }
 
   createDetailsLayer(field: Field) {
-    return L.geoJSON(field.geoJSONResponse, {
+    return L.geoJSON(field.geoJSONResponse as geojson.GeoJsonObject, {
       style: {
         color: 'white',
         weight: 2, // 2    0
@@ -107,6 +111,9 @@ export class FieldMapComponent implements AfterViewInit {
       [latne, lngne],
       [latsw, lngsw],
     ];
-    return L.imageOverlay(`data:image/png;base64,${b64img}`, imageBounds);
+    return L.imageOverlay(
+      `data:image/png;base64,${b64img}`,
+      imageBounds as L.LatLngBoundsExpression,
+    );
   }
 }

@@ -9,17 +9,14 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SplitViewComponent } from './split-view/split-view.component';
 import { FormsModule } from '@angular/forms';
 
-// import * as fromComponents from './components';
+import { SplitViewComponent } from './split-view/split-view.component';
 
 @NgModule({
-  // declarations: [...fromComponents.components],
   declarations: [SplitViewComponent],
   // imports: [CommonModule, FormsModule],
   imports: [CommonModule],
-  // exports: [FormsModule, ...fromComponents.components]
   exports: [FormsModule, SplitViewComponent],
 })
 export class SharedModule {}

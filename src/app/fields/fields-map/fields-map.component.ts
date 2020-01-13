@@ -9,9 +9,12 @@ import {
 } from '@angular/core';
 
 import * as L from 'leaflet';
+import * as geojson from 'geojson';
 
 import { Field } from '../shared/field.model';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
+
+const { mapKey } = environment;
 
 @Component({
   selector: 'app-fields-map',
@@ -23,7 +26,6 @@ export class FieldsMapComponent implements AfterViewInit {
   @Output() fieldSelected = new EventEmitter<Field>();
 
   @ViewChild('map', { static: true }) mapDiv: ElementRef;
-  private mapKey = environment.mapKey;
   private map: L.Map;
 
   handleClick(field: Field) {
@@ -31,11 +33,12 @@ export class FieldsMapComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (this.fields && this.mapKey) {
-      this.createMap(this.fields, this.mapKey);
+    if (this.fields && mapKey) {
+      this.createMap(this.fields, mapKey);
     }
   }
 
+  // tslint:disable-next-line: no-shadowed-variable
   createMap(fields: Field[], mapKey: string) {
     if (!this.map) {
       this.map = L.map(this.mapDiv.nativeElement);
@@ -53,6 +56,7 @@ export class FieldsMapComponent implements AfterViewInit {
     this.map.fitBounds(bounds);
   }
 
+  // tslint:disable-next-line: no-shadowed-variable
   createBaseLayer(mapKey: string) {
     return L.tileLayer(
       `https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${mapKey}`,
@@ -61,9 +65,9 @@ export class FieldsMapComponent implements AfterViewInit {
   }
 
   createOverlayLayer(fields: Field[]) {
-    const featureCollection = fields.reduce(
-      (features, field) => [
-        ...features,
+    const features = fields.reduce(
+      (list, field) => [
+        ...list,
         { ...field.geoJSONResponse, properties: { field } },
       ],
       [],
@@ -79,17 +83,17 @@ export class FieldsMapComponent implements AfterViewInit {
     const onFieldSelected = this.fieldSelected;
     let geojsonLayer: L.Layer;
 
-    function onEachFeature(feature, layer) {
+    function onEachFeature(feature: geojson.Feature, layer: L.Layer) {
       layer.on({
         mouseover: function highlightFeature(e) {
-          const layer = e.target;
-          layer.setStyle({ weight: 5, fillOpacity: 0.7 });
+          const target = e.target;
+          target.setStyle({ weight: 5, fillOpacity: 0.7 });
           if (!(L.Browser.ie || L.Browser.opera || L.Browser.edge)) {
-            layer.bringToFront();
+            target.bringToFront();
           }
         },
         mouseout: function resetHighlight(e) {
-          geojsonLayer.resetStyle(e.target);
+          (geojsonLayer as L.GeoJSON).resetStyle(e.target);
         },
         click: function outputSelection(e) {
           onFieldSelected.emit(e.target.feature.properties.field);
@@ -97,9 +101,9 @@ export class FieldsMapComponent implements AfterViewInit {
       });
     }
 
-    return (geojsonLayer = L.geoJSON(featureCollection, {
-      style,
-      onEachFeature,
-    }));
+    return (geojsonLayer = L.geoJSON(
+      { type: 'FeatureCollection', features } as geojson.FeatureCollection,
+      { style, onEachFeature },
+    ));
   }
 }

@@ -9,5 +9,4 @@ import { FIELDS } from './field.data';
 })
 export class FieldService {
   fields$ = of(FIELDS);
-  test = 'hi';
 }

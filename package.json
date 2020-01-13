@@ -5,10 +5,11 @@
     "ng": "ng",
     "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ngx-lint": "node ngx-lint"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +39,7 @@
     "@schuchard/prettier": "^3.1.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/leaflet": "^1.5.7",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "husky": "3.1.0",
@@ -54,17 +56,24 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "winston": "^3.2.1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged -r"
     }
   },
   "lint-staged": {
-    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+    "src/**/*.ts": [
+      "node ngx-lint field-viewer --fix=true",
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.{json,js,css,scss,less,md,html,component.html}": [
       "prettier --write",
       "git add"
     ]
+
   }
 }
