@@ -1,1 +1,6 @@
-
+debug: cwd: /mnt/c/wip/Demos/field-viewer
+debug: script: field-viewer
+debug: files: --files="src/app/app.component.ts"
+debug: cwd: /mnt/c/wip/Demos/field-viewer
+debug: script: field-viewer
+debug: files: --files="src/app/app.component.ts"

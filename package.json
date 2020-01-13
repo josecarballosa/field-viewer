@@ -65,8 +65,12 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{json,js,css,scss,less,md,html,component.html}": [
+    "src/**/*.ts": [
       "node ngx-lint field-viewer",
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.{json,js,css,scss,less,md,html,component.html}": [
       "prettier --write",
       "git add"
     ]
